@@ -29,9 +29,11 @@
     self.game = [Game new];
     self.player1 = [[Player alloc]initWithLives:3];
     self.player2 = [[Player alloc]initWithLives:3];
-    self.player1Score.text = @"Player 1: 3";
-    self.player2Score.text = @"Player 2: 3";
+    self.player1Score.text = [@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
+    self.player2Score.text = [@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
     self.currentPlayer = self.player1;
+    self.mathQuestion.text = [[[[@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.x]] stringByAppendingString:@" + " ] stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.y]]stringByAppendingString:@"?"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +73,8 @@
 
 - (IBAction)enterAnswer:(id)sender {
     [self.game checkAnswerforPlayer:self.currentPlayer];
+    self.player1Score.text = [@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
+    self.player2Score.text = [@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
 }
 
 @end
