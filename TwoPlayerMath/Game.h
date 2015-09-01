@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class Player;
-
 @interface Game : NSObject
 
 @property (nonatomic) int x;
 @property (nonatomic) int y;
 
+-(void)generateMathQuestion;
 -(void)buildAnswerFrom:(int)selectedNumber;
 -(int)checkAnswerforPlayer:(Player *)player;
 

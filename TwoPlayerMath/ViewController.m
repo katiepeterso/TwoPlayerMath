@@ -7,13 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "Player.h"
 #import "Game.h"
 
 @interface ViewController ()
 
-@property (nonatomic) Player *player1;
-@property (nonatomic) Player *player2;
 @property (nonatomic) Game *game;
 @property (strong, nonatomic) IBOutlet UILabel *player1Score;
 @property (strong, nonatomic) IBOutlet UILabel *player2Score;
@@ -27,13 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.game = [Game new];
-    self.player1 = [[Player alloc]initWithLives:3];
-    self.player2 = [[Player alloc]initWithLives:3];
-    self.player1Score.text = [@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
-    self.player2Score.text = [@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
-    self.currentPlayer = self.player1;
-    self.mathQuestion.text = [[[[@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.x]] stringByAppendingString:@" + " ] stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.y]]stringByAppendingString:@"?"];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,8 +63,9 @@
 
 - (IBAction)enterAnswer:(id)sender {
     [self.game checkAnswerforPlayer:self.currentPlayer];
-    self.player1Score.text = [@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
-    self.player2Score.text = [@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
+    [self.game generateMathQuestion];
+    
+        
 }
 
 @end

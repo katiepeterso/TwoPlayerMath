@@ -14,7 +14,6 @@
 		AA6DF3521B94FA3300378AFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6DF3511B94FA3300378AFD /* Images.xcassets */; };
 		AA6DF3551B94FA3300378AFD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA6DF3531B94FA3300378AFD /* LaunchScreen.xib */; };
 		AA6DF3611B94FA3300378AFD /* TwoPlayerMathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6DF3601B94FA3300378AFD /* TwoPlayerMathTests.m */; };
-		AA6DF36C1B94FE6C00378AFD /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6DF36B1B94FE6C00378AFD /* Player.m */; };
 		AA6DF36F1B94FF2F00378AFD /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6DF36E1B94FF2F00378AFD /* Game.m */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +41,6 @@
 		AA6DF35A1B94FA3300378AFD /* TwoPlayerMathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwoPlayerMathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA6DF35F1B94FA3300378AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA6DF3601B94FA3300378AFD /* TwoPlayerMathTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoPlayerMathTests.m; sourceTree = "<group>"; };
-		AA6DF36A1B94FE6C00378AFD /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		AA6DF36B1B94FE6C00378AFD /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		AA6DF36D1B94FF2F00378AFD /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		AA6DF36E1B94FF2F00378AFD /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,8 +89,6 @@
 				AA6DF34B1B94FA3300378AFD /* ViewController.h */,
 				AA6DF34C1B94FA3300378AFD /* ViewController.m */,
 				AA6DF34E1B94FA3300378AFD /* Main.storyboard */,
-				AA6DF36A1B94FE6C00378AFD /* Player.h */,
-				AA6DF36B1B94FE6C00378AFD /* Player.m */,
 				AA6DF36D1B94FF2F00378AFD /* Game.h */,
 				AA6DF36E1B94FF2F00378AFD /* Game.m */,
 				AA6DF3511B94FA3300378AFD /* Images.xcassets */,
@@ -230,7 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA6DF36F1B94FF2F00378AFD /* Game.m in Sources */,
-				AA6DF36C1B94FE6C00378AFD /* Player.m in Sources */,
 				AA6DF34D1B94FA3300378AFD /* ViewController.m in Sources */,
 				AA6DF34A1B94FA3300378AFD /* AppDelegate.m in Sources */,
 				AA6DF3471B94FA3300378AFD /* main.m in Sources */,
