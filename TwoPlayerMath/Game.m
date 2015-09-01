@@ -36,40 +36,77 @@
     return self;
 }
 
+
 -(void)generateMathQuestion {
     
     self.x = arc4random() % 20;
     self.y = arc4random() % 20;
+    [self.answer removeAllObjects];
 }
+
 
 -(void)buildAnswerFrom:(int)selectedNumber {
     NSNumber *number = [NSNumber numberWithInt:selectedNumber];
     [self.answer addObject:number];
 }
 
+
 -(int)checkAnswer {
-    NSString *stringAnswer = [[self.answer valueForKey:@"description"] componentsJoinedByString:@""];
+    NSString *stringAnswer = [self.answer componentsJoinedByString:@""];
     int finalAnswer = [stringAnswer intValue];
     
-    if (finalAnswer != self.x+self.y) {
-        player.currentLives = player.currentLives - 1;
+    if ([self.currentPlayer isEqualToString:@"Player 1"]) {
+        if (finalAnswer != self.x+self.y) {
+            self.player1CurrentLives =self.player1CurrentLives - 1;
+        }
+        return self.player1CurrentLives;
     }
-    return player.currentLives;
+    else {
+        if (finalAnswer != self.x+self.y) {
+            self.player2CurrentLives =self.player2CurrentLives - 1;
+        }
+        return self.player2CurrentLives;
+    }
 }
 
--(void)resetLabels {
-    self.player1Score.text = [@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1.currentLives]];
-    self.player2Score.text = [@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player2.currentLives]];
-    
-    if ([self.currentPlayer isEqual:self.player1]) {
-        self.currentPlayer = self.player2;
-        self.mathQuestion.text = [[[[@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.x]] stringByAppendingString:@" + " ] stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.y]]stringByAppendingString:@"?"];
+
+-(void)switchPlayers {
+    if ([self.currentPlayer isEqualToString:@"Player 1"]) {
+        self.currentPlayer = @"Player 2";
     }
-    else if ([self.currentPlayer isEqual:self.player2]) {
-        self.currentPlayer = self.player1;
-        self.mathQuestion.text = [[[[@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.x]] stringByAppendingString:@" + " ] stringByAppendingString:[NSString stringWithFormat:@"%d", self.game.y]]stringByAppendingString:@"?"];
+    else if ([self.currentPlayer isEqualToString:@"Player 2"]) {
+        self.currentPlayer = @"Player 1";
+    }
+
+}
+
+-(NSString*)resetScoreLabelsForPlayer1 {
+    if (self.player1CurrentLives==0) {
+        return @"Game Over! Player 2 wins.";
+    }
+    else {
+        return [@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player1CurrentLives]];
     }
 }
+
+-(NSString*)resetScoreLabelsForPlayer2 {
+    if (self.player2CurrentLives==0) {
+        return @"Game Over! Player 1 wins.";
+    }
+    else {
+        return [@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d",self.player2CurrentLives]];
+    }
+}
+
+-(NSString*)resetMathQuestionLabel {
+    if ([self.currentPlayer isEqualToString:@"Player 1"]) {
+        return [[[[@"Player 1: " stringByAppendingString:[NSString stringWithFormat:@"%d", self.x]] stringByAppendingString:@" + " ] stringByAppendingString:[NSString stringWithFormat:@"%d", self.y]]stringByAppendingString:@"?"];
+    }
+    else {
+        return [[[[@"Player 2: " stringByAppendingString:[NSString stringWithFormat:@"%d", self.x]] stringByAppendingString:@" + " ] stringByAppendingString:[NSString stringWithFormat:@"%d", self.y]]stringByAppendingString:@"?"];
+    }
+}
+
 
 
 @end

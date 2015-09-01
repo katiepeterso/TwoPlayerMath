@@ -15,6 +15,10 @@
 
 -(void)generateMathQuestion;
 -(void)buildAnswerFrom:(int)selectedNumber;
--(int)checkAnswerforPlayer:(Player *)player;
+-(int)checkAnswer;
+-(void)switchPlayers;
+-(NSString*)resetScoreLabelsForPlayer1;
+-(NSString*)resetScoreLabelsForPlayer2;
+-(NSString*)resetMathQuestionLabel;
 
 @end

@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *player1Score;
 @property (strong, nonatomic) IBOutlet UILabel *player2Score;
 @property (strong, nonatomic) IBOutlet UILabel *mathQuestion;
-@property (strong, nonatomic) Player *currentPlayer;
 
 @end
 
@@ -24,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.game = [Game new];
+    self.mathQuestion.text = [self.game resetMathQuestionLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,10 +62,12 @@
 }
 
 - (IBAction)enterAnswer:(id)sender {
-    [self.game checkAnswerforPlayer:self.currentPlayer];
+    [self.game checkAnswer];
     [self.game generateMathQuestion];
-    
-        
+    [self.game switchPlayers];
+    self.mathQuestion.text = [self.game resetMathQuestionLabel];
+    self.player1Score.text = [self.game resetScoreLabelsForPlayer1];
+    self.player2Score.text = [self.game resetScoreLabelsForPlayer2];
 }
 
 @end
